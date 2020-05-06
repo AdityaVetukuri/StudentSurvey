@@ -1,0 +1,85 @@
+<!-- 
+Aditya Varma Vetukuri
+Sai Ruchieatha Maanvi Thibirisetti
+Sai Venkata Sucheta Pallempati
+Kaushik Gedela
+Jeevan Mamillapalli
+-->
+<!--LIST ALL SURVEY PAGE-->
+<style>
+    table, th , td {
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    
+    table tr:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+    
+    table tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+    </style>
+<div class = "container">
+    <h1>Student Survey List</h1>
+    <div>
+        <!-- Table to print our data-->
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Date of survey</th>
+                        
+                        <th> Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Street_address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip Code</th>
+                        <th>Recommend</th>
+                        <th>Most Liked!</th>
+                        <th>How did you get to know?</th>
+                        
+                
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Prepopulating data after http.get call-->
+                    <tr *ngFor="let student of studentList">
+                        <td>{{student.Survey_Date}}</td>
+                       
+                        <td>{{student.firstName}} {{student.lastName}}</td>
+                        <td>{{student.Telephone}}</td>
+                        <td>{{student.Email}}</td>
+                        <td> {{student.Address}}</td>
+                        <td> {{student.City}} </td>
+                         <td>  {{student.State}} </td>
+                         <td>{{student.Zip}}</td>
+                        <td>{{student.Recommend}}</td>
+                        <td>{{student.FavLocation}}</td>
+                        <td>{{student.Hobbies}}</td>
+                       
+                        
+                    
+
+
+                        <!-- "Address": "asdasda",
+  "City": "Fairfax",
+  "Email": "aditnvoker@gmail.com",
+  "FavLocation": "asdsadsa",
+  "firstName": "Aditya",
+  "id": "aditnvoker@gmail.com",
+  "lastName": "Vetukuri",
+  "Recommend": "dsada",
+  "Mostliked": "",
+  "State": "VA",
+  "Survey_Date": "13-10-1997",
+  "Telephone": "9948546000",
+  "Zip": "22030" -->
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+</div>

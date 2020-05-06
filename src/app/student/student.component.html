@@ -1,0 +1,94 @@
+<!-- 
+Aditya Varma Vetukuri
+Sai Ruchieatha Maanvi Thibirisetti
+Sai Venkata Sucheta Pallempati
+Kaushik Gedela
+Jeevan Mamillapalli
+-->
+<!--Using Angular form group -->
+<form [formGroup]="form" form name="studentform" (ngSubmit)="submit()">
+     <!-- Required text fields starts here -->
+     <!-- We used [(ngModels for two way binding)]-->
+     <H3 style="color:#9c3f06;"><u>Name</u></H3>
+     <div class= "form-class">First name: <input id="firstName" type="text" name="first_name" [(ngModel)]="item.firstName" align="right"
+          width="55" height="48" [formControl]="form.controls.firstName" required />
+          <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;</div>
+     Last name: <input id="lastName" type="text" name="last_name" [(ngModel)]="item.lastName" align="right" width="55"
+          height="48" [formControl]="form.controls.lastName" required>
+     <br> <br> 
+
+      
+     <H3 style="color:#9c3f06;"><u>Address</u> </H3>
+     street address: &nbsp;&emsp; <input type="text-area" name="street address" size="50" [(ngModel)]="item.streetAddress"
+          align="right" width="55" height="48" [formControl]="form.controls.streetAddress" required/>
+     <br><br>
+     city: &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" id="city" name="city"
+          [(ngModel)]="item.city" align="rightwards" size="50" [formControl]="form.controls.city" required/><br><br>
+          state: &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" id="state" name="state"
+          [(ngModel)]="item.state" align="rightwards" size="50" [formControl]="form.controls.state" required/><br><br>
+     zip: &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text-box" id="zip" name="zip"
+          [(ngModel)]="item.zip" [formControl]="form.controls.zip" required/>
+     <br> <br> 
+
+     <!-- Contact -->
+     <H3 style="color:#9c3f06;"><u>Contact Information</u></H3>
+     Telephone number: &nbsp;&emsp;&emsp;&emsp;<input type="box" id="Tele" name="telephone number"
+          [(ngModel)]="item.telePhone" [formControl]="form.controls.telePhone" required/>
+     <br>
+     e-mail: &nbsp;&emsp;&emsp;&emsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="email" id="email" name="e-mail"
+          [(ngModel)]="item.email" size="50" [formControl]="form.controls.email" required/>
+     <br>
+     <!--Calendar-->
+     <div class = "form-group">
+          <label for = "name">Date of Survey</label>
+          <input type ="date" class = "form-control" id = "date" placeholder="dd//mm/yyyy"
+             [(ngModel)] = "item.date" name = "date" [formControl]="form.controls.date"
+             required
+             >
+       </div>
+
+       <!-- <div class = "form-group">
+               <label for = "name">Date of Survey</label>
+               <input type = "date" class = "form-control" id = "date"
+                  [(ngModel)] = "item.date" name = "date"
+                  required
+                  >
+            </div> -->
+     <br>
+
+     <!-- University survey -->
+     <!--radio button-->
+     <H3 style="color:#9c3f06;"><u>How did you get to know about the university?</u></H3>
+     <div *ngFor="let item of itemsList">
+               <input type="radio" id ="university" name="item.name" [(ngModel)]="item.university" [value]="item.value"
+               (change)="onchange(item.value)" [ngModelOptions]="{standalone: true}"> {{item.name}}
+     </div>
+     <div></div>
+
+     <br><br><br>
+  <!-- Checkboxes --> 
+      <H3 style="color:#9c3f06;"><u>Most liked about campus</u></H3>
+     <div *ngFor="let item of checkBoxList; let i=index">
+               <input type="checkbox" id="item.value" name="item.name" [(ngModel)]="item.mostLiked" value="item.mostLiked"
+                    (change)="onCheckBoxchange(item.value, i, $event.target.checked)"  [ngModelOptions]="{standalone: true}"> {{item.name}} 
+          </div>
+     
+    <!-- Drop down-->
+
+     <H3 style="color:#9c3f06;"> <u>Likelihood of recommending this school</u> </H3>
+
+
+      <select id="recommend" [(ngModel)]="recommend" (change)="onSelectchange($event.target.value)"[ngModelOptions]="{standalone: true}">
+               <option *ngFor="let i of selectItemList">{{i.name}}</option>
+          
+     </select> 
+     <br><br><br>
+
+    
+
+     <button type="submit" id="sub" [disabled]="!form.valid" value="Submit">Submit</button>
+     <button type="Cancel" id="cancel" value="Cancel">Cancel</button>
+     <input type = "reset" id="reset"></form>
+
+
